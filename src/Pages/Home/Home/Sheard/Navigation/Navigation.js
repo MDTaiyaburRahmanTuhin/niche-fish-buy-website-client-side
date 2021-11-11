@@ -17,9 +17,14 @@ const Navigation = () => {
                         <Nav.Link as={HashLink} to="/myorder">MyOrder</Nav.Link>
 
 
+
                         {user?.email ?
-                            <Button onClick={logOut} variant="light">Logout</Button> :
-                            <Nav.Link href="/login">Login</Nav.Link>
+
+                            <div>
+                                <Button onClick={logOut} variant="light">Logout</Button>
+                                <Nav.Link as={HashLink} to="/admin">Admin</Nav.Link>
+                            </div>
+                            : <Nav.Link href="/login">Login</Nav.Link>
                         }
                         <Navbar.Text>
                             Signed in as: <Link to="/login">{user?.displayName}</Link>

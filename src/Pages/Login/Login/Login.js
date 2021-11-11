@@ -6,7 +6,7 @@ import Navigation from '../../Home/Home/Sheard/Navigation/Navigation';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, loginUser, authError, isLoading } = useAuth();
+    const { user, loginUser, singnInWithGoogle, authError, isLoading } = useAuth();
     const location = useLocation();
     const history = useHistory()
     const handleOnChange = e => {
@@ -20,6 +20,10 @@ const Login = () => {
     const handleLoginSubmit = e => {
         loginUser(loginData.email, loginData.password, location, history);
         e.preventDefault();
+    }
+
+    const handleGoogleSignIn = () => {
+        singnInWithGoogle(location, history)
     }
     return (
         <div>
@@ -49,6 +53,10 @@ const Login = () => {
                 {user?.email && <Alert>User Created successfully!</Alert>}
                 {authError && <Alert>{authError}</Alert>}
             </form>
+
+            <p>--------------------</p>
+            <Button onClick={handleGoogleSignIn}>Google Sing in</Button>
+
         </div>
     );
 };

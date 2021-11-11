@@ -14,6 +14,7 @@ import Services from './Pages/Services/Services';
 import PrivateRouth from './Pages/Login/PrivateRouth/PrivateRouth';
 import Booking from './Booking/Booking';
 import Myorder from './Pages/Myorder/Myorder';
+import Admin from './Pages/Admin/Admin';
 function App() {
   return (
     <div className="App">
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route path="/myorder">
               <Myorder></Myorder>
+            </Route>
+            <Route path="/admin">
+              <Admin></Admin>
             </Route>
             <Route path="/login">
               <Login />

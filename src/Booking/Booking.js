@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import useAuth from '../hooks/useAuth';
+import Navigation from '../Pages/Home/Home/Sheard/Navigation/Navigation';
 const Booking = () => {
     const { serviceId } = useParams();
     const [service, setService] = useState({})
@@ -11,7 +12,7 @@ const Booking = () => {
             .then(res => res.json())
             .then((data) => setService(data))
     }, []);
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         data.email = user?.email;
         console.log(data);
@@ -22,12 +23,14 @@ const Booking = () => {
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
-            .then((result) => console.log(result));
+            .then(result => console.log(result));
+        reset()
         console.log(data);
     }
 
     return (
         <div>
+            <Navigation></Navigation>
             <div className="row container">
                 <div className="col-md-6">
                     <div className="card border-0 shadow">
