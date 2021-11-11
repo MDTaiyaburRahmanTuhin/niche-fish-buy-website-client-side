@@ -16,7 +16,6 @@ const Addservices = () => {
     }
     return (
         <div>
-            <Navigation />
             <h2>Add a Service</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <br />

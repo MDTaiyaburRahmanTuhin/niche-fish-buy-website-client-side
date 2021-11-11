@@ -45,13 +45,32 @@ const Booking = () => {
                 </div>
                 <div className='col-md-6'>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input className='p-3 m-3 w-50' {...register("name", { required: true, maxLength: 20 })} defaultValue={service?.name} placeholder='Name' />
+                        <input
+                            {...register("text")}
+                            defaultValue={service?.name}
+                            className="p-2 m-2 w-100"
+                        />
                         <br />
-                        <input className='p-3 m-3  w-50' {...register("description",)} defaultValue={service?.description} placeholder='Description' />
+                        <input
+                            {...register("text")}
+                            defaultValue={service?.description}
+                            className="p-2 m-2 w-100"
+                        />
                         <br />
-                        <input className='p-3 m-3  w-50' type="number" {...register("price")} defaultValue={service?.price} placeholder='Price' />
+                        <input
+                            {...register("price", { required: true })}
+                            defaultValue={service?.price}
+                            className="p-2 m-2"
+                            className="p-2 m-2 w-100"
+                        />
                         <br />
-                        <input className='p-3 m-3  w-50' {...register("img",)} defaultValue={service?.img} placeholder='image url' />
+                        <br />
+                        <input
+                            {...register("image", { required: true })}
+                            defaultValue={service?.img}
+                            className="p-2 m-2"
+                            className="p-2 m-2 w-100"
+                        />
                         <br />
                         <input type="submit" />
                     </form>
