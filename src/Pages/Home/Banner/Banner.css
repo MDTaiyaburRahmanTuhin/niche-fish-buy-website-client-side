@@ -1,0 +1,43 @@
+.banner {
+  background-image: url('https://i.ibb.co/nmR6CHm/weddings-banner1.jpg');
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid red; */
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.title-1{
+  color: gray;
+  font-size: 60px;
+  text-align: center;
+}
+.title {
+  color: gray;
+  /* font-weight: bold; */
+  font-weight: normal;
+  font-size: 20px;
+}
+.boled{
+  font-weight: bolder;
+}
+small{
+  color: gray;
+  font-size: 16px;
+}
+.text-color{
+  color: #f3a46b;
+}
+.text{
+  margin-left: 700px;
+  margin-top: 200px;
+}
+.line-style{
+  list-style-type: none;
+  color: gray;
+  font-size: 20px;
+}
+.li{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
