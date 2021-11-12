@@ -12,6 +12,7 @@ import { Button } from 'react-bootstrap';
 import Addservices from '../Addservices/Addservices';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useAuth from '../../hooks/useAuth';
+import AllOrders from '../AllOrders/AllOrders';
 
 
 const Admin = () => {
@@ -20,7 +21,6 @@ const Admin = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <h2>This is admin</h2>
             <div className='row'>
                 <div className='col-md-3'>
                     <div className="admin-area p-1">
@@ -29,6 +29,7 @@ const Admin = () => {
                         {admin && <div>
                             <Link to={`${url}/makeAdmin`}><Button>Make Admin</Button></Link>
                             <Link to={`${url}/addDoctor`}><Button>Add Doctor</Button></Link>
+                            <Link to={`${url}/allOrders`}><Button>All Orders</Button></Link>
                         </div>}
                     </div>
                 </div>
@@ -39,6 +40,9 @@ const Admin = () => {
                         </Route>
                         <Route path={`${path}/makeAdmin`}>
                             <MakeAdmin></MakeAdmin>
+                        </Route>
+                        <Route path={`${path}/allOrders`}>
+                            <AllOrders></AllOrders>
                         </Route>
                     </Switch>
                 </div>

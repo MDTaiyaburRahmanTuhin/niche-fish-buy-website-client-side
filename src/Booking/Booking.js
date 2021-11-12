@@ -7,14 +7,19 @@ const Booking = () => {
     const { serviceId } = useParams();
     const [service, setService] = useState({})
     const { user } = useAuth();
+    const { register, handleSubmit, reset } = useForm();
     useEffect(() => {
         fetch(`http://localhost:5000/orderProdect/${serviceId}`)
             .then(res => res.json())
-            .then((data) => setService(data))
-    }, []);
-    const { register, handleSubmit, reset } = useForm();
+            .then((data) => {
+                setService(data)
+                reset(data);
+            })
+    }, [reset]);
+
     const onSubmit = data => {
         data.email = user?.email;
+        data.status = 'pending';
         console.log(data);
 
         fetch("http://localhost:5000/myOrder", {
@@ -23,8 +28,10 @@ const Booking = () => {
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
-            .then(result => console.log(result));
-        reset()
+            .then(result => {
+                console.log(result)
+
+            });
         console.log(data);
     }
 
@@ -46,20 +53,20 @@ const Booking = () => {
                 <div className='col-md-6'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <input
-                            {...register("text")}
+                            {...register("name")}
                             defaultValue={service?.name}
                             className="p-2 m-2 w-100"
                         />
                         <br />
                         <input
                             {...register("text")}
-                            defaultValue={service?.description}
+                            defaultValue={service?.price}
                             className="p-2 m-2 w-100"
                         />
                         <br />
                         <input
                             {...register("price", { required: true })}
-                            defaultValue={service?.price}
+                            defaultValue={service?.img}
                             className="p-2 m-2"
                             className="p-2 m-2 w-100"
                         />
@@ -67,7 +74,7 @@ const Booking = () => {
                         <br />
                         <input
                             {...register("image", { required: true })}
-                            defaultValue={service?.img}
+                            defaultValue={service?.description}
                             className="p-2 m-2"
                             className="p-2 m-2 w-100"
                         />

@@ -6,19 +6,25 @@ import Navigation from '../Home/Home/Sheard/Navigation/Navigation';
 const Myorder = () => {
     const { user } = useAuth();
     const email = user?.email;
-    const [order, setOrder] = useState([])
+    const [order, setOrder] = useState([]);
+    const [conotrol, setConotrol] = useState(false)
     useEffect(() => {
         fetch(`http://localhost:5000/myOrders/${email}`)
             .then(res => res.json())
             .then((data) => setOrder(data));
-    }, [order])
+    }, [conotrol])
 
     const handleDelete = (id) => {
         fetch(`http://localhost:5000/deleteOrder/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())
-            .then((data) => console.log(data));
+            .then((data) => {
+                if (data.deletedCount) {
+                    setConotrol(!conotrol)
+                }
+                console.log(data)
+            });
     }
     return (
         <div>
