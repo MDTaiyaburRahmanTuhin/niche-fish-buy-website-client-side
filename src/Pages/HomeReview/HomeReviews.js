@@ -4,7 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import './HomeReviews.css'
 const HomeReviews = ({ rating }) => {
     const { user } = useAuth()
-    const { description, review, displayName } = rating;
+    const { description, review } = rating;
     return (
         <div>
             <div className="card border-0 shadow ">
