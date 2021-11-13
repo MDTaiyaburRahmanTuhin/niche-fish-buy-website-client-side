@@ -9,13 +9,13 @@ const Myorder = () => {
     const [order, setOrder] = useState([]);
     const [conotrol, setConotrol] = useState(false)
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(`https://ancient-sea-96085.herokuapp.com/myOrders/${email}`)
             .then(res => res.json())
             .then((data) => setOrder(data));
-    }, [conotrol])
+    }, [order])
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        fetch(`https://ancient-sea-96085.herokuapp.com/deleteOrder/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

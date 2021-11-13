@@ -11,13 +11,13 @@ const AllOrders = () => {
     }
     console.log(status);
     useEffect(() => {
-        fetch('http://localhost:5000/allOrders')
+        fetch('https://ancient-sea-96085.herokuapp.com/allOrders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/updateStatus/${id}`, {
+        fetch(`https://ancient-sea-96085.herokuapp.com/updateStatus/${id}`, {
             method: "put",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ status })
@@ -27,7 +27,7 @@ const AllOrders = () => {
 
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+        fetch(`https://ancient-sea-96085.herokuapp.com/deleteOrder/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

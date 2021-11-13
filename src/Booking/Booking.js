@@ -9,7 +9,7 @@ const Booking = () => {
     const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
     useEffect(() => {
-        fetch(`http://localhost:5000/orderProdect/${serviceId}`)
+        fetch(`https://ancient-sea-96085.herokuapp.com/orderProdect/${serviceId}`)
             .then(res => res.json())
             .then((data) => {
                 setService(data)
@@ -22,7 +22,7 @@ const Booking = () => {
         data.status = 'pending';
         console.log(data);
         delete data._id
-        fetch("http://localhost:5000/myOrder", {
+        fetch("https://ancient-sea-96085.herokuapp.com/myOrder", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
