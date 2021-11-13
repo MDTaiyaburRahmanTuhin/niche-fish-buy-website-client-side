@@ -21,7 +21,7 @@ const Booking = () => {
         data.email = user?.email;
         data.status = 'pending';
         console.log(data);
-
+        delete data._id
         fetch("http://localhost:5000/myOrder", {
             method: "POST",
             headers: { "content-type": "application/json" },

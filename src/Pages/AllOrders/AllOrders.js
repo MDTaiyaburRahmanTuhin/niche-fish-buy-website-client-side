@@ -4,7 +4,7 @@ import { Table } from 'react-bootstrap';
 const AllOrders = () => {
     const [ordes, setOrders] = useState([]);
     const [status, setStatus] = useState("");
-
+    const [conotrol, setConotrol] = useState(false)
 
     const handleStatus = (e) => {
         setStatus(e.target.value)
@@ -23,6 +23,20 @@ const AllOrders = () => {
             body: JSON.stringify({ status })
         })
         console.log(id);
+    }
+
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/deleteOrder/${id}`, {
+            method: 'DELETE',
+        })
+            .then(res => res.json())
+            .then((data) => {
+                if (data.deletedCount) {
+                    setConotrol(!conotrol)
+                }
+                console.log(data)
+            });
     }
     return (
         <div>
@@ -46,7 +60,7 @@ const AllOrders = () => {
                             <td>{pd.description}</td>
                             <td>{pd.email}</td>
                             <td><input onChange={handleStatus} type='text' defaultValue={pd.status} /></td>
-                            <button className="btn bg-danger p-2">Delete</button>
+                            <button onClick={() => handleDelete(pd?._id)} className="btn bg-danger p-2">Delete</button>
                             <button onClick={() => handleUpdate(pd._id)} className="btn bg-success p-2">update</button>
                         </tr>
                     </tbody>

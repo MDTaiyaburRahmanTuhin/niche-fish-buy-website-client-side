@@ -42,6 +42,7 @@ const Myorder = () => {
                             <h4>{pd?.model}</h4>
                             <p>{pd?.description}</p>
                             <h3> price{pd?.price}</h3>
+                            <p>status {pd?.status}</p>
                             <Button onClick={() => handleDelete(pd?._id)}>Delet</Button>
                         </div>
                     </div>

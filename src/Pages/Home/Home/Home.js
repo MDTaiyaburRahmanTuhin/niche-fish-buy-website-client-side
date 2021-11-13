@@ -1,4 +1,6 @@
 import React from 'react';
+import HomeReview from '../../HomeReview/HomeReview';
+import OtherService from '../../OtherService/OtherService';
 import Services from '../../Services/Services';
 import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
@@ -10,6 +12,8 @@ const Home = () => {
             <Navigation></Navigation>
             <Banner></Banner>
             <Services></Services>
+            <HomeReview></HomeReview>
+            <OtherService></OtherService>
             <Footer></Footer>
         </div>
     );
